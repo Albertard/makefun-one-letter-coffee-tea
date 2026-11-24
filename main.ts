@@ -9,7 +9,10 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const TEXT = "A";
+// The entry is a single letter: "A" stands for coffee, "B" for tea.
+// Renamed from TEXT to ENTRY_LETTER so the name says the value is one
+// letter, not an arbitrary text.
+const ENTRY_LETTER = "A";
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 const outPath = join(outDir, "entry.txt");
@@ -27,7 +30,7 @@ function checkFitsGate(candidate: string): void {
   }
 }
 
-checkFitsGate(TEXT);
+checkFitsGate(ENTRY_LETTER);
 
 mkdirSync(outDir, { recursive: true });
-writeFileSync(outPath, TEXT, "utf8");
+writeFileSync(outPath, ENTRY_LETTER, "utf8");
